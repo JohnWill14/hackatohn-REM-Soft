@@ -4,8 +4,10 @@ import br.com.remsoft.equipe3.hackathon.model.Cotacao;
 import br.com.remsoft.equipe3.hackathon.service.CotacaoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -15,9 +17,12 @@ import java.util.List;
 public class CotacoesEndPoint {
     private CotacaoService cotacaoService;
 
-    @PostMapping
-    public ResponseEntity<?> save(Cotacao cotacao){
-        Cotacao cotacoesSaved = cotacaoService.add(cotacao);
+    @PostMapping(value = "/", consumes = {
+            "multipart/form-data",
+            MediaType.APPLICATION_JSON_VALUE
+    })
+    public ResponseEntity<?> save(Cotacao cotacao, @RequestParam("file")MultipartFile  file){
+        Cotacao cotacoesSaved = cotacaoService.add(cotacao, file);
         return new ResponseEntity(cotacoesSaved, HttpStatus.CREATED);
     }
 

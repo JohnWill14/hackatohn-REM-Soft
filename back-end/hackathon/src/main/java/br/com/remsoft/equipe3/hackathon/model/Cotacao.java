@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.FileInputStream;
 import java.time.LocalDate;
 
 @Entity
@@ -21,5 +20,5 @@ public class Cotacao {
     private LocalDate dataLimiteResposta;
     @OneToOne
     private Empresa empresa;
-    private String arquivo;
+    private String arquivoURL;
 }
