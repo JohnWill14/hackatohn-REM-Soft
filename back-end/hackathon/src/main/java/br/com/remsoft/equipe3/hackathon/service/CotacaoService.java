@@ -1,7 +1,6 @@
 package br.com.remsoft.equipe3.hackathon.service;
 
 import br.com.remsoft.equipe3.hackathon.model.Cotacao;
-import br.com.remsoft.equipe3.hackathon.model.Empresa;
 import br.com.remsoft.equipe3.hackathon.repository.CotacaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

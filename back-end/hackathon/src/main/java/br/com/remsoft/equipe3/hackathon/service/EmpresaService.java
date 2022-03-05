@@ -13,7 +13,7 @@ import java.util.Optional;
 public class EmpresaService {
     private final EmpresaRepository empresaRepository;
 
-    public List<Empresa> findAll(Empresa empresa){
+    public List<Empresa> findAll(){
         return empresaRepository.findAll();
     }
 
