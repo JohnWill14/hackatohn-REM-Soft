@@ -10,6 +10,7 @@ import { CompradorComponent } from './pages/comprador/comprador.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { NovaCotacaoComponent } from './pages/nova-cotacao/nova-cotacao.component';
 import { RespostasFornecedoresComponent } from './pages/respostas-fornecedores/respostas-fornecedores.component';
+import { RespostasCompradoresComponent } from './pages/respostas-compradores/respostas-compradores.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RespostasFornecedoresComponent } from './pages/respostas-fornecedores/r
     CompradorComponent,
     CadastroComponent,
     NovaCotacaoComponent,
-    RespostasFornecedoresComponent
+    RespostasFornecedoresComponent,
+    RespostasCompradoresComponent
   ],
   imports: [
     BrowserModule,

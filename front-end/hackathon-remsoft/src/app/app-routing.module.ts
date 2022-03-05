@@ -5,6 +5,7 @@ import { CompradorComponent } from './pages/comprador/comprador.component';
 import { FornecedorComponent } from './pages/fornecedor/fornecedor.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NovaCotacaoComponent } from './pages/nova-cotacao/nova-cotacao.component';
+import { RespostasCompradoresComponent } from './pages/respostas-compradores/respostas-compradores.component';
 import { RespostasFornecedoresComponent } from './pages/respostas-fornecedores/respostas-fornecedores.component';
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'comprador/respostas-fornecedores',
     component: RespostasFornecedoresComponent
+  },
+  {
+    path: 'fornecedor/respostas-compradores',
+    component: RespostasCompradoresComponent
   }
 ];
 
