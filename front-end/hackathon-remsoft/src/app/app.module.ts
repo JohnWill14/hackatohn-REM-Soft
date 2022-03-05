@@ -7,6 +7,7 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FornecedorComponent } from './pages/fornecedor/fornecedor.component';
 import { CompradorComponent } from './pages/comprador/comprador.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CompradorComponent } from './pages/comprador/comprador.component';
     NavbarComponent,
     LoginComponent,
     FornecedorComponent,
-    CompradorComponent
+    CompradorComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
