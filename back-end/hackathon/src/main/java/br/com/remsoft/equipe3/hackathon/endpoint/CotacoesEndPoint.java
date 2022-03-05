@@ -17,13 +17,18 @@ import java.util.List;
 public class CotacoesEndPoint {
     private CotacaoService cotacaoService;
 
-    @PostMapping(value = "/", consumes = {
-            "multipart/form-data",
-            MediaType.APPLICATION_JSON_VALUE
-    })
-    public ResponseEntity<?> save(Cotacao cotacao, @RequestParam("file")MultipartFile  file){
-        Cotacao cotacoesSaved = cotacaoService.add(cotacao, file);
+    @PostMapping(value = "/")
+    public ResponseEntity<?> save(@RequestBody Cotacao cotacao){
+        Cotacao cotacoesSaved = cotacaoService.save(cotacao);
         return new ResponseEntity(cotacoesSaved, HttpStatus.CREATED);
+    }
+
+    @PatchMapping(value = "/{id}", consumes = {
+            MediaType.MULTIPART_FORM_DATA_VALUE
+    })
+    public ResponseEntity<?> upload(@RequestParam("id") Long id, @RequestParam("file")MultipartFile  file){
+        cotacaoService.addImage(id, file);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

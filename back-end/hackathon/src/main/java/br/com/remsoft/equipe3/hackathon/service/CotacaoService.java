@@ -1,5 +1,6 @@
 package br.com.remsoft.equipe3.hackathon.service;
 
+import br.com.remsoft.equipe3.hackathon.error.BadRequestException;
 import br.com.remsoft.equipe3.hackathon.model.Cotacao;
 import br.com.remsoft.equipe3.hackathon.repository.CotacaoRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,28 +17,38 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CotacaoService {
-    @Value("ocument.upload-directory")
+    @Value("document.upload-directory")
     private String caminhoImage;
     private final CotacaoRepository cotacaoRepository;
 
-    public Cotacao add(Cotacao cotacao, MultipartFile file){
+    public Cotacao save(Cotacao cotacao){
         Cotacao cotacaoSave = cotacaoRepository.save(cotacao);
+        return cotacaoSave;
+    }
+
+    public void addImage(Long id, MultipartFile file ){
+        Cotacao cotacao = findById(id);
         try{
             if(!file.isEmpty()){
                 byte[] bytes = file.getBytes();
-                Path caminho = Paths.get(caminhoImage+cotacaoSave.getId()+file.getOriginalFilename());
+                Path caminho = Paths.get(caminhoImage+cotacao.getId()+file.getOriginalFilename());
                 Files.write(caminho,  bytes);
             }
-            cotacaoSave.setArquivoURL(cotacaoSave.getId()+file.getOriginalFilename());
+            cotacao.setArquivoURL(cotacao.getId()+file.getOriginalFilename());
+            save(cotacao);
         }catch (Exception ex){
             ex.printStackTrace();
             throw new RuntimeException("Erro ao salvar imagem");
         }
-        return cotacaoSave;
     }
 
     public List<Cotacao> findAll(){
         return cotacaoRepository.findAll();
+    }
+
+    public Cotacao findById(Long id){
+        return cotacaoRepository.findById(id)
+                .orElseThrow(()-> new BadRequestException("id nao encontrado"));
     }
 
     public List<Cotacao> findAllByIdEmpresa(Long id){

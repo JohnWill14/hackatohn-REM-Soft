@@ -23,7 +23,7 @@ public class EmpresaService {
         return byId.orElseThrow(()-> new BadRequestException("id nao encontrado"));
     }
 
-    public Empresa add(Empresa empresa){
+    public Empresa save(Empresa empresa){
         return empresaRepository.save(empresa);
     }
 }
