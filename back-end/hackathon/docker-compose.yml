@@ -6,9 +6,7 @@ services:
     image: mariadb
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: root
-      MARIADB_ROOT_HOST: root
-      MARIADB_DATABASE: hakathon
+      MARIADB_ROOT_PASSWORD: example
     ports:
       - 3306:3306
   adminer:
