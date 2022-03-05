@@ -30,7 +30,8 @@ public class CotacaoService {
             }
             cotacaoSave.setArquivoURL(cotacaoSave.getId()+file.getOriginalFilename());
         }catch (Exception ex){
-
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao salvar imagem");
         }
         return cotacaoSave;
     }
