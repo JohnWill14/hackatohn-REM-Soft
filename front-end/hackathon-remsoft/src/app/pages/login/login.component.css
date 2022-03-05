@@ -1,0 +1,30 @@
+.container {
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.form-group-input {
+  width: 80%;
+}
+
+.form-group-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  margin: 1rem 0;
+}
+
+.btn-primary {
+  border: 1px solid #fff;
+  transition: all .6s ease;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  color: #0275d8;
+}
