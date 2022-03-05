@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class Cotacao {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String tituloCotação;
+    private String tituloCotacao;
     private String descricao;
     private LocalDate dataLimiteResposta;
     @OneToOne

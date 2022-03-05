@@ -1,5 +1,6 @@
 package br.com.remsoft.equipe3.hackathon.service;
 
+import br.com.remsoft.equipe3.hackathon.error.BadRequestException;
 import br.com.remsoft.equipe3.hackathon.model.Empresa;
 import br.com.remsoft.equipe3.hackathon.repository.EmpresaRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class EmpresaService {
 
     public Empresa findByIdOrThrowException(Long id){
         Optional<Empresa> byId = empresaRepository.findById(id);
-        return byId.orElseThrow(()-> new RuntimeException("id nao encontrado"));
+        return byId.orElseThrow(()-> new BadRequestException("id nao encontrado"));
     }
 
     public Empresa add(Empresa empresa){
