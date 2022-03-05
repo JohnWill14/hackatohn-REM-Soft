@@ -8,6 +8,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { FornecedorComponent } from './pages/fornecedor/fornecedor.component';
 import { CompradorComponent } from './pages/comprador/comprador.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { NovaCotacaoComponent } from './pages/nova-cotacao/nova-cotacao.component';
+import { RespostasFornecedoresComponent } from './pages/respostas-fornecedores/respostas-fornecedores.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
     LoginComponent,
     FornecedorComponent,
     CompradorComponent,
-    CadastroComponent
+    CadastroComponent,
+    NovaCotacaoComponent,
+    RespostasFornecedoresComponent
   ],
   imports: [
     BrowserModule,
