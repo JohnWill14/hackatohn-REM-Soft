@@ -5,16 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "empresa")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Empresa {
+public abstract class Empresa {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cnpj;
     private String senha;
     private String whatsapp;
+    @Enumerated(EnumType.STRING)
+    private TipoEmpresa tipo;
+    @OneToMany
+    private List<Cotacao> cotacoes;
 }
